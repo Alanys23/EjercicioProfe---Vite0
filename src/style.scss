@@ -1,33 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  box-sizing: border-box;
-}
-
-// ejemplo de cómo son las variables en css normal(aquí ya no lo usamos)
-:root{
-  --color: black;
-}
-
-
-// VARIABLES Fuentes y colores (sólo válidas en scss)
-$fuenteText:Arial, Helvetica, sans-serif;
-$fuenteHeaders: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-$color00:white;
-$color01: black;
-$color02: #1aeca4;
-$color03: #008cd5;
-$color04: #410a6e;
-
-
-header, nav, main, footer, section{
-  width: 100%;
-}
+@use 'config' as c;
+@use 'art01';
 
 header{
   height: 100dvh;   
-  background: linear-gradient(45deg,$color02, $color03, $color04);
+  background: linear-gradient(45deg,c.$color02, c.$color03, c.$color04);
   
   display: flex;
   flex-direction: column;
@@ -39,27 +15,35 @@ header{
 h1{
   font-size: clamp(1rem, 5vw, 6rem);
   font-weight: 900;
-  color: white;
-  font-family:$fuenteHeaders;
+  color: c.$color00;
+  font-family:c.$fuenteHeaders;
+  @media only screen and (min-width:c.$tablet){
+    color: red;
+  }
+  @media only screen and (min-width:c.$desktop){
+    color: rgb(26, 255, 0);
+  }
 }
 
 .boton{
   text-decoration: none;
-  color: white;
-  font-family: $fuenteText;
+  color: c.$color00;
+  font-family: c.$fuenteText;
   font-weight: 900;
-  background-color: #410a6e;
+  background-color: c.$color04;
   padding: 1rem 3rem;
   border-radius: 5px;
   transition: .5s;
+  @media only screen and (min-width:c.$tablet){
+    color: red;
+  }
+  @media only screen and (min-width:c.$desktop){
+    color: rgb(26, 255, 0);
+  }
   &:hover{
-    color: #410a6e;
-    background-color: white;
+    color: c.$color04;
+    background-color: c.$color00;
   }
 }
-
-
-
-
 
 
