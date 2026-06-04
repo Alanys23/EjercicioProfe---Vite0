@@ -1,6 +1,7 @@
 @use 'config' as c;
 @use 'art01';
 
+
 header{
   height: 100dvh;   
   background: linear-gradient(45deg,c.$color02, c.$color03, c.$color04);
