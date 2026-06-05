@@ -1,6 +1,7 @@
 @use 'config' as c;
 @use 'art01';
 @use 'art02';
+@use 'art03';
 
 
 header{
@@ -27,25 +28,6 @@ h1{
   }
 }
 
-.boton{
-  text-decoration: none;
-  color: c.$color00;
-  font-family: c.$fuenteText;
-  font-weight: 900;
-  background-color: c.$color04;
-  padding: 1rem 3rem;
-  border-radius: 5px;
-  transition: .5s;
-  @media only screen and (min-width:c.$tablet){
-    color: red;
-  }
-  @media only screen and (min-width:c.$desktop){
-    color: rgb(26, 255, 0);
-  }
-  &:hover{
-    color: c.$color04;
-    background-color: c.$color00;
-  }
-}
+
 
 

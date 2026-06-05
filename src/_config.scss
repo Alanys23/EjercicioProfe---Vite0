@@ -59,3 +59,24 @@ h1, h2, h3, h4{
 h3{
   color: $color03;
 }
+
+.boton{
+  text-decoration: none;
+  color: $color00;
+  font-family: $fuenteText;
+  font-weight: 900;
+  background-color: $color04;
+  padding: 1rem 3rem;
+  border-radius: 5px;
+  transition: .5s;
+  @media only screen and (min-width:$tablet){
+    color: red;
+  }
+  @media only screen and (min-width:$desktop){
+    color: rgb(26, 255, 0);
+  }
+  &:hover{
+    color: $color04;
+    background-color: $color00;
+  }
+}

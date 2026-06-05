@@ -1,0 +1,47 @@
+@use 'config' as c;
+
+.art03{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    row-gap: 1.5rem;
+    background-color: aquamarine;
+    @media only screen and (min-width:c.$tablet){
+        width: 80%;
+        flex-direction: row;
+        align-items: center; //aquí va temita
+        justify-content: center;
+    }
+    >:nth-child(1){
+        background-color: antiquewhite;
+        width: 100%;
+        padding: 0 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; //también habrá temilla
+        row-gap: 1.5rem;
+        @media only screen and (min-width:c.$tablet){
+            width: 50%;
+            padding: initial;
+            padding-right: 1.5rem;
+            row-gap: 2rem;
+        }
+        >:nth-child(1){
+            text-align: center;
+            @media only screen and (min-width:c.$tablet){
+                align-self: start;
+            }
+        }
+    }
+    >img{
+        width: 100%;
+        object-fit: cover;
+        @media only screen and (min-width:c.$tablet){
+            width: 50%;
+        }
+    }
+}
+
