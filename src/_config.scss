@@ -26,11 +26,13 @@
 $fuenteText: 'Montserrat';
 $fuenteHeaders: 'Spartan';
 $color00:white;
-$color01: black;
+$color01: rgb(39, 39, 39);
+$color01-bis: rgba(0, 0, 0, 0.042);
 $color02: #1aeca4;
 $color03: #008cd5;
+$color03svg:invert(48%) sepia(76%) saturate(3627%) hue-rotate(174deg) brightness(89%) contrast(102%);
 $color04: #410a6e;
-
+$color04svg:invert(8%) sepia(87%) saturate(6055%) hue-rotate(275deg) brightness(65%) contrast(100%);
 $tablet: 800px;
 $desktop: 1100px;
 
