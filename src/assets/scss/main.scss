@@ -1,10 +1,11 @@
-@use 'config' as c;
-@use 'art01';
-@use 'art02';
-@use 'art03';
-@use 'artGrid';
-@use 'modulePersonal01';
-@use 'artSlider01';
+@use './assets/config' as c;
+@use './assets/art01';
+@use './assets/art02';
+@use './assets/art03';
+@use './assets/artGrid';
+@use './assets/modulePersonal01';
+@use './assets/artSlider01';
+@use './assets/artJs';
 
 
 header{
