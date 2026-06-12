@@ -69,6 +69,7 @@ h3{
   font-weight: 900;
   background-color: $color04;
   padding: 1rem 3rem;
+  border: 2px dashed $color04;
   border-radius: 5px;
   transition: .5s;
   @media only screen and (min-width:$tablet){
@@ -80,5 +81,6 @@ h3{
   &:hover{
     color: $color04;
     background-color: $color00;
+    border: 2px dashed $color04;
   }
 }
