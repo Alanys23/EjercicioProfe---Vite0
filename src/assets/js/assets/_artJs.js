@@ -9,7 +9,7 @@ const miValorInalterable = "cualquiercosa"
 mivariable = "Igor"
 miotravariable = "Aranaz"
 
-let num1 = 10.50
+let num1 = 10.8
 let num2 = 8
 let resultado = num1 * num2
 
@@ -23,13 +23,17 @@ const elementoHtmlBoton = document.querySelector("#botonID")
 // a través de esa constante (colección html) le cambio/agrego propiedades
 console.log(elementoHtmlBoton)
 
-// Evento de escucha sobre un elemento recogido en una constante (evento tipo click)
-elementoHtmlBoton.addEventListener("click", function(event){
-    
-    event.currentTarget.style.backgroundColor="pink"
-    this.style.color="green"
-    elementoHtmlBoton.style.border="3px solid black"
-})
+// recojo todos los elementos de clase boton, ya como nodos
+const elementosHtmlBoton = document.querySelectorAll(".boton")
+console.log(elementosHtmlBoton)
+
+
+// // Evento de escucha sobre un elemento recogido en una constante (evento tipo click)
+// elementoHtmlBoton.addEventListener("click", function(event){    
+//     event.currentTarget.style.backgroundColor="pink"
+//     this.style.color="green"
+//     elementoHtmlBoton.style.border="3px solid black"
+// })
 
 
 
@@ -38,38 +42,76 @@ elementoHtmlBoton.addEventListener("click", function(event){
 const botones = document.querySelectorAll(".boton")
 // const botones = document.getElementsByClassName("boton")
 
-// opción 1
-// forof para recorrer botones
-for(const boton of botones){
-    boton.addEventListener("click", function(){  
-        e.currentTarget.style.border="2px solid red"          
-        this.style.backgroundColor="pink"
-        boton.style.color="green"
-    })
-}
+// // opción 1 para recorrer botones
+// // forof para recorrer botones
+// for(const boton of botones){
+//     boton.addEventListener("click", function(){  
+//         e.currentTarget.style.border="2px solid red"          
+//         this.style.backgroundColor="pink"
+//         boton.style.color="green"
+//     })
+// }
 
-// opción 2
-// función normal con foreach para recorrer botones
-botones.forEach(function(boton){    
-    boton.addEventListener("click", function(e){  
-        e.currentTarget.style.border="2px solid blue"      
-        this.style.backgroundColor="pink"
-        boton.style.color="green"
+// // opción 2 para recorrer botones
+// // función normal con foreach para recorrer botones
+// botones.forEach(function(boton){    
+//     boton.addEventListener("click", function(e){
+//         // alternativas para hacer referencia al elemento boton para cambiarle los estilos
+//         e.currentTarget.style.border="2px solid blue"      
+//         this.style.backgroundColor="pink"
+//         boton.style.color="green"
+//     })
+// })
+
+
+// opción 3 para recorrer botones
+// función flecha con foreach para recorrer botones
+botones.forEach((boton)=>{   
+
+    // escucho el botón sobre el que se ha hecho click. Sólo entro cuandos e hace click en uno
+    boton.addEventListener("click", (e)=>{
+
+        // Recorro trodos los botones de clase boton para resetearles el color
+        botones.forEach((boton)=>{
+            boton.style.backgroundColor="#410a6e"
+            boton.style.border="2px dashed #410a6e"
+            boton.style.color="white"
+            console.log(mivariable)
+        })
+
+        // Una vez he reseteado todos los botones, cambio de color el target sobre el que se ha hecho click.
+        e.currentTarget.style.border="2px solid green"  
+        boton.style.backgroundColor="pink"
+        boton.style.color="green"        
     })
 
 })
 
-// opción 3
-// función flecha con foreach para recorrer botones
-botones.forEach((boton)=>{    
-    boton.addEventListener("click", (e)=>{
 
-        e.currentTarget.style.border="2px solid green"  
-        this.style.backgroundColor="pink"
-        boton.style.color="green"
 
+
+// ---------------------------------
+// Ejercicio del toggle con el texto
+// Efecto acordeón
+
+// recojo la colección de nodos con clase .botonDesplegar
+const botonesDesplegar = document.querySelectorAll(".botonDesplegar")
+
+// recorro con forEach y funciones flecha
+botonesDesplegar.forEach((item)=>{
+    
+    item.addEventListener("click", ()=>{
+
+        // Cojo el elemento padre y de ahí el elemento de la clase que me interesa (sólo el primero con esa clase)
+        const superior = item.parentElement
+        const miParrafo = superior.querySelector(".desplegable")
+
+        // const miParrafo = item.previousElementSibling  //Cojo el elemento previo al que tengo en item.
+
+        miParrafo.classList.toggle("open")
+
+        
     })
-
 })
 
 
