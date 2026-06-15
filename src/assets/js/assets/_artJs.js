@@ -108,7 +108,7 @@ botonesDesplegar.forEach((item)=>{
 
         // const miParrafo = item.previousElementSibling  //Cojo el elemento previo al que tengo en item.
 
-        miParrafo.classList.toggle("open")
+        miParrafo.classList.toggle("open") //le añade la clase Open,y si la tiene le quita
 
         
     })
