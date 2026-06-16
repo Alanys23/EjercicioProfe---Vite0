@@ -120,7 +120,7 @@ botonesDesplegar.forEach((item)=>{
 
         miParrafo.classList.contains("open") ? item.innerText = "Leer menos" : item.innerText = "Leer mas"
 
-         /*miParrafo.classList.contains("open") ? item.innerText = "Leer menos" : item = botonpordefectodesplega*/
+         
         
     })
 })
