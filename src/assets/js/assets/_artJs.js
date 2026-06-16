@@ -110,6 +110,17 @@ botonesDesplegar.forEach((item)=>{
 
         miParrafo.classList.toggle("open") //le añade la clase Open,y si la tiene le quita
 
+      /*  if(miParrafo.classList.contains("open")){
+            item.innerText = "Leer menos"
+        } else {
+            item.innerText = "Leer mas"
+        }*/
+
+        //const botonpordefectodesplega = "Leer mas"   Esto lo puse pa intentar 2da opcion con solo un inner text
+
+        miParrafo.classList.contains("open") ? item.innerText = "Leer menos" : item.innerText = "Leer mas"
+
+         /*miParrafo.classList.contains("open") ? item.innerText = "Leer menos" : item = botonpordefectodesplega*/
         
     })
 })

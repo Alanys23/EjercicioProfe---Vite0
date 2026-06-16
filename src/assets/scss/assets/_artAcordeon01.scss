@@ -1,0 +1,16 @@
+@use 'config' as c;
+
+.artAcordeon01{
+    //background-color: aquamarine;
+    width: 100%;
+    padding: 0 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    row-gap: 2rem;
+
+    @media only
+
+}
