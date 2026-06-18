@@ -1,5 +1,10 @@
 // Guardamos en una constante todos los carruseles que tengan esta clase.
 // Usamos querySelectorAll porque podria haber mas de un carrusel en la pagina.
+
+export default function  artSlider() {
+
+  console.log("holas") //pa probar que me esta leyendo este archivo js
+
 const carruseles = document.querySelectorAll('.artSlider01')
 
 // Recorremos cada carrusel encontrado.
@@ -60,3 +65,4 @@ carruseles.forEach((carrusel) => {
     }
   }, tiempoEspera)
 })
+}

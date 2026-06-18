@@ -10,13 +10,13 @@
         padding: initial;
     }
 
-    >:nth-child(1){
+    >:nth-child(1){ //visor
         width: 100%;
         overflow: hidden;
         border-radius: 20px;
     }
 
-    >:nth-child(1)>:nth-child(1){
+    >:nth-child(1)>:nth-child(1){ //pista
         display: flex;
     }
 
