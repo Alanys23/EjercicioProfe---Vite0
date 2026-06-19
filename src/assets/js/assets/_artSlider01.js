@@ -13,9 +13,16 @@ carruseles.forEach((carrusel) => {
   // La pista es el elemento que se va a mover hacia la izquierda.
   const pista = carrusel.querySelector('.artSlider01__pista')
 
+
+ 
   // Las slides son cada una de las pantallas del carrusel.
   // Array.from convierte el resultado en un array normal para poder recorrerlo mejor.
   const slides = Array.from(carrusel.querySelectorAll('.artSlider01__slide'))
+
+
+ const dots = carrusel.querySelectorAll(`.artSlider01__track__dot`)
+//console.log("holass botoncito") pa probar en console
+
 
   // contador guarda en que slide estamos.
   // Empieza en 0 porque la primera slide es la posicion inicial.
@@ -28,20 +35,60 @@ carruseles.forEach((carrusel) => {
   // Si falta la pista o no hay slides, no hacemos nada y evitamos errores.
   if (!pista || slides.length === 0) return
 
+  slides.forEach(($slide) => {
+    const $copia = $slide.cloneNode(true)
+    pista.appendChild($copia)
+  })
+
   // Duplicamos las slides originales y las ponemos al final de la pista.
   // Truco del infinito:
   // despues de la ultima slide real, el usuario ve una copia de la primera.
-  slides.forEach((slide) => {
+
+  ////////////////////////////////////////////
+  /* slides.forEach((slide) => {
     const copia = slide.cloneNode(true)
 
     // aria-hidden evita que los lectores de pantalla lean dos veces el mismo contenido.
     copia.setAttribute('aria-hidden', 'true')
 
     pista.appendChild(copia)
-  })
+  }) */
 
   // Cada cierto tiempo avanzamos una slide.
+  
   setInterval(() => {
+
+    contador++;
+    pista.style.transform = `translateX(-${100 * contador}%)`
+    pista.style.transition = `transform ${tiempoTransicion}ms`
+
+    if(contador === slides.length){
+
+
+     /* contador = 0
+      pista.style.transform = `translateX(0)`
+      pista.transitio = `none`*/
+
+      //cambia por OTRA:
+        setTimeout(() => {
+        contador = 0;
+        pista.style.transform = `translateX(0)`;
+        pista.style.transition = "none";
+      },tiempoTransicion)
+      
+    }
+  },tiempoEspera)
+
+
+
+
+
+
+
+  
+  ////////////////////////////
+  
+  /*setInterval(() => {
     contador++
 
     // Activamos la animacion y movemos la pista.
@@ -51,6 +98,8 @@ carruseles.forEach((carrusel) => {
 
     // Cuando contador vale lo mismo que slides.length,
     // ya hemos llegado a la primera slide copiada.
+
+
     if (contador === slides.length) {
       // Esperamos a que termine la animacion antes de recolocar la pista.
       setTimeout(() => {
@@ -63,6 +112,7 @@ carruseles.forEach((carrusel) => {
         contador = 0
       }, tiempoTransicion)
     }
-  }, tiempoEspera)
+  }, tiempoEspera)*/
+  //////////////////////////////////////////
 })
 }

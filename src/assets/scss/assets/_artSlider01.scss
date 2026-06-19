@@ -1,9 +1,11 @@
 @use 'config' as c;
 
 .artSlider01{
+    
     width: 100%;
     padding: 0 1.5rem;
     background-color: c.$color01-bis;
+    position: relative; //aqui agrego eso despues pa las bolitas q son absolute
 
     @media only screen and (min-width:c.$tablet){
         width: 80%;
@@ -21,7 +23,7 @@
     }
 
     .artSlider01__slide{
-        width: 100%;
+        width: 100%; //coge del 1er padre q tiene especificado el ancho
         height: 55dvh;
         flex: 0 0 100%;
         overflow: hidden;
@@ -53,6 +55,32 @@
             object-fit: cover;
             object-position: center;
             transition: 1s;
+        }
+    }
+
+
+
+    //ANALIZAR ESTOOOOOOOO
+    .artSlider01__track{
+        display: flex;
+        justify-content: center;
+
+        position: absolute; //el realtive d su padre es artSlider01
+        bottom: 10px;
+        width: 100%;
+        gap: 10px;
+        height: 20px;
+       // background-color: black;
+        .artSlider01__track__dot{
+            height: 15px;
+            width: 15px;
+            background-color: #fff;
+            opacity: 0.5; //pa q al seleccionar se ponha en negrito,color original
+            border-radius: 50%;
+            &.active{
+                opacity: 1;
+                transition: opacity 500ms; 
+            }
         }
     }
 }
