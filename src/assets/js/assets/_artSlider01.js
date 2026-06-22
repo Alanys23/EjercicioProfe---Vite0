@@ -27,10 +27,53 @@ carruseles.forEach((carrusel) => {
   // contador guarda en que slide estamos.
   // Empieza en 0 porque la primera slide es la posicion inicial.
   let contador = 0
+  let idInterval;
 
   // Estos tiempos estan separados para que sea facil cambiarlos en clase.
   const tiempoTransicion = 500
   const tiempoEspera = 3000
+
+
+//////////22//////////////
+
+
+&btnoPrev.addEventListener("click", (e) => {
+  autoPlayInterval(idInterval);
+  contador = contador -1;
+  renderSlide(contador, $pista, tiempoTransicion);
+  console.log(contador, "prev");
+})
+
+$btnNext.addEventListener("click", (e) => {
+  contador += 1;
+  renderSlide(contador, $pista, tiempoTransicion);
+  console.log(contador, "next");
+})
+
+
+
+$slides.forEach(($slide) =>{
+  const $copia = $slide.cloneNode(true);
+  $pista.appendChild($copia);
+});
+
+idInterval = setInterval(() => {
+  
+  contador++; //modificamos antes ,esto es por referencia o valo?????AQUI COGE POR VALOR!!
+  handleInterval(contador, $dots, $pista, tiempoTransicion, $slides);
+ }, tiempoEspera);
+
+
+
+///////22////////////
+
+
+
+
+
+
+
+
 
   // Si falta la pista o no hay slides, no hacemos nada y evitamos errores.
   if (!pista || slides.length === 0) return
@@ -59,8 +102,9 @@ carruseles.forEach((carrusel) => {
   setInterval(() => {
 
     contador++;
-    pista.style.transform = `translateX(-${100 * contador}%)`
-    pista.style.transition = `transform ${tiempoTransicion}ms`
+  renderSlide(contador,$pista,tiempoTransicion)
+  renderDots($dots);
+  
 
     if(contador === slides.length){
 
@@ -72,19 +116,15 @@ carruseles.forEach((carrusel) => {
       //cambia por OTRA:
         setTimeout(() => {
         contador = 0;
-        pista.style.transform = `translateX(0)`;
-        pista.style.transition = "none";
-      },tiempoTransicion)
-      
+        //dia 22.elimino esto:
+        // pista.style.transform = `translateX(0)`;
+        // pista.style.transition = "none";
+        setTimeout(() => {
+          renderPista($pista, contador);
+        })
+      },tiempoTransicion) 
     }
   },tiempoEspera)
-
-
-
-
-
-
-
   
   ////////////////////////////
   
@@ -113,6 +153,53 @@ carruseles.forEach((carrusel) => {
       }, tiempoTransicion)
     }
   }, tiempoEspera)*/
-  //////////////////////////////////////////
+  //////////////////////////////////////////()
+
+//dia 22///
 })
+}
+
+function renderSlide(contador, pista, tiempoTransicion){
+  $pista.style.transition = `transform ${tiempoTransicion}ms`;
+  $pista.style.transform = `translateX( -${100 * contador}%)`;
+}
+
+function renderPista($pista, contador) {
+  $pista.style.transition = "none";
+  $pista.style.transform = "translate(0)";
+  contador = 0;
+}
+
+//aqui ira la logicfa de los puntos, se va a separar
+function renderDots($dots, contador) {
+  $dots[contador - 1]?.classList.contains("active");
+
+  if ($dots[contador]){
+
+    if ($dots[contador]) {
+
+      if(!$dots[contador].classList.contains("active")) {
+        $dots[contador].classList.add("active");
+      }
+    }else{
+      $dots[0].classList.add("active");
+    }
+  }
+
+}
+
+function autoPlayInterval(idInterval) {
+  clearInterval(idInterval);
+}
+
+function handleInterval(contador, $dots, $pista, tiempoTransicion, $slides) {
+  contador++;
+  renderSlide(contador, $pista, tiempoTransicion);
+  renderDots(&dots, contador);
+
+  if (contador ===$slides.length) {
+    setTimeout(() => {
+      resetPista($pista, contador);
+    }, tiempoTransicion);
+  }
 }
