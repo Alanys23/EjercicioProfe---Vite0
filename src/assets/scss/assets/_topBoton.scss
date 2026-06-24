@@ -13,7 +13,7 @@
     //transition: scale 0.5s;
    // transition: all 0.5s; //pa q afecta al opcacity y al visibility
    transition: all 0.05s;
-    &hover{
+    &:hover{
         scale: 0.9;
     } ;
 }

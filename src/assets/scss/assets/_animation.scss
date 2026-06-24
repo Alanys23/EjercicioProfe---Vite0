@@ -10,6 +10,18 @@
     animation: showY 1s;
 }
 
+.fadeOut{
+    opacity: 0;
+    scale: 0.5;
+}
+
+.fadeIn{
+    //transition: all .5s ease-in;
+    transition: all 1s ease-in;
+    opacity: 1;
+    scale: 1;
+}
+
 @keyframes showY{
     0%{
         transform: translateY(-30px);
