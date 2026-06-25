@@ -1,8 +1,14 @@
-.nav__container {
-  position: fixed;
-  top: 20px;
-  right: 10px;
-  &--darkModeButton {
+// .nav__container {
+//   position: fixed;
+//   top: 20px;
+//   right: 10px;
+  .header--darkModeButton {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    margin: 10px;
     padding: 10px;
     width: 50px;
     height: 50px;
@@ -12,5 +18,14 @@
     font-size: 2rem;
     color: #56096c;
     background-color: #e0c4f0;
+    filter: drop-shadow(1px 5px 5px black);
   }
+
+  nav {
+    background-color: transparent;
+    transition: .5s;
+
+    &.scrolled {
+        background-color: gray !important; //Esto hace q el mio gane al d Bosstrap,pq los d bosstrap son mas especificos.
+    }
 }

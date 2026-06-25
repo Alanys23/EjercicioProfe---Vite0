@@ -13,22 +13,25 @@
 .fadeOut{
     opacity: 0;
     scale: 0.5;
+    transform: translate(-300px);
 }
 
 .fadeIn{
     //transition: all .5s ease-in;
     transition: all 1s ease-in;
+    transform: translate(0);
     opacity: 1;
     scale: 1;
 }
 
 @keyframes showY{
-    0%{
-        transform: translateY(-30px);
-    }
+    // 0%{
+    //     transform: translateY(-30px);
+    // }
     50% {
         //transform: translateY(30PX); //empieza abajo
-        transform: translateY(-10px);
+        //transform: translateY(-10px);
+        transform: translateY(20px);
 
     }
     100%{

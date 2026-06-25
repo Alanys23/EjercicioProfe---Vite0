@@ -11,6 +11,7 @@ import { artAcordeon01 } from './assets/_artAcordeon01.js' //esto es sin Default
 import topBotom from './assets/_topBotom.js'
 import darkMode from './assets/_darkMode.js'
 import Observer from './assets/_Observer.js'
+import navScrollTop from './assets/_navScrollTop.js'
 
 artAcordeon01() //aqui decido cuando se ejecuta, sino se ejecuta asi pq si al momento de importar
 
@@ -27,5 +28,6 @@ document.addEventListener("DOMContentLoaded", () => { //aqui si o si se carga cu
 
     Observer();
 
+    navScrollTop();
     
 })
