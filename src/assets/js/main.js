@@ -13,6 +13,7 @@ import darkMode from './assets/_darkMode.js'
 import Observer from './assets/_Observer.js'
 import navScrollTop from './assets/_navScrollTop.js'
 import modal from './assets/_modal.js'
+import Dialog from './assets/templates/_Dialog.js'
 
 artAcordeon01() //aqui decido cuando se ejecuta, sino se ejecuta asi pq si al momento de importar
 
@@ -30,8 +31,21 @@ document.addEventListener("DOMContentLoaded", () => { //aqui si o si se carga cu
     Observer();
 
     navScrollTop();
-    $main.appendChild(modal());
+   
+   // $main.appendChild(modal());
+    //document.body.appendChild(modal());
 
     //modal();
+    const template = Dialog()
+    console.log({template})
+    const $btnOpenModal = document.querySelector("#openModall");
+    $btnOpenModal.addEventListener("click", () =>{
+        document.body.appendChild(modal());
+        console.log({template})
+        modal(template);
+    })
+
+
+
     
 })

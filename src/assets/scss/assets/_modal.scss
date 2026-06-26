@@ -1,6 +1,37 @@
-.modal{
+//Antes queriamos hacerlo con clase llamado modal, pero Bostrap tiene ese mismo nombre, solo podemos sobrepobernos a el por medio del id!!
+#modal{
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgbA(0, 0, 0, .7);
+    z-index: 999999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal__container{
+        background-color: goldenrod;
+        height: 500px;
+        width: 80%;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        .modal__header{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            .modal--btn-close{
+                font-size:  1.5rem;
+                transition: scale 3000ms;
+                &:hover{
+                    cursor: pointer;
+                    scale: 0.7;;
+                }
+            }
+        }
+
+       
+        //background-color: #fff;
+    }
 
 }
+
