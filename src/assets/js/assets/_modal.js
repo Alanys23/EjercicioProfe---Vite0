@@ -24,9 +24,27 @@ console.log(template,"DESDE MODAL")
         </div>
         `;
 
+    const $btnClose = $modal.querySelector(".modal--btn-close");
+    const $modalContainer = $modal.querySelector(".moda1__container");
+
     $modal.addEventListener("click", () => {
         $modal.remove();
     })
+
+    $modal.addEventListener("click", (evento) => {
+        //console.log(event.target);
+        if(event.target.closest("[data-modal-close]")){
+           // console.log(event.target);
+           $modal.remove(); //quita elemento modal
+        }
+
+        if(!$modalContainer.contains(event.target)){ //todo lo q este fuera,hace clik y se cierra
+            //console.log(event.target);
+            $modal.remove();
+        }
+
+    })
+
 
     return $modal;
 

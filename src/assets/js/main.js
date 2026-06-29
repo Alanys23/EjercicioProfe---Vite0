@@ -14,6 +14,7 @@ import Observer from './assets/_Observer.js'
 import navScrollTop from './assets/_navScrollTop.js'
 import modal from './assets/_modal.js'
 import Dialog from './assets/templates/_Dialog.js'
+import validationForm from './assets/_ValidationForm.js'
 
 artAcordeon01() //aqui decido cuando se ejecuta, sino se ejecuta asi pq si al momento de importar
 
@@ -35,17 +36,14 @@ document.addEventListener("DOMContentLoaded", () => { //aqui si o si se carga cu
    // $main.appendChild(modal());
     //document.body.appendChild(modal());
 
-    //modal();
-    const template = Dialog()
-    console.log({template})
-    const $btnOpenModal = document.querySelector("#openModall");
-    $btnOpenModal.addEventListener("click", () =>{
-        document.body.appendChild(modal());
-        console.log({template})
-        modal(template);
-    })
+    //////AQUI LOGICA PA Q SALGA CUADRO//////
+const $btnModal1 = document.querySelector("#openModall")
 
-
+$btnModal1.addEventListener("click",()=>{
+    document.body.appendChild(modal(Dialog()))
+})
+///////////FIN MODAL///////
+validationForm();
 
     
 })
